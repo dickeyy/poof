@@ -19,15 +19,15 @@ export default function Home() {
                     </div>
                     <p>
                         Share one-time information securely. Create a short-lived text file, send a
-                        link, and it disappears forever after someone views it. 100% free and{" "}
+                        link, and it disappears forever after someone views it. 100% free,{" "}
                         <Link
                             href="https://github.com/dickeyy/poof"
                             target="_blank"
                             className="underline underline-offset-2 transition-all hover:opacity-70"
                         >
                             open-source
-                        </Link>{" "}
-                        and self-hostable.
+                        </Link>
+                        , and self-hostable.
                     </p>
                     <div className="flex w-full items-center gap-4">
                         <Button variant="outline" className="w-full" asChild>
