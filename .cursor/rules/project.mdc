@@ -1,0 +1,31 @@
+---
+alwaysApply: true
+---
+
+## Project Overview
+
+poof.sh is a simple service that allows you to create short-lived text "files" that can be shared to anyone but can only be viewed once. A disposable text file that can be used to share one-time information with someone. When a user creates an entry, they are given a short URL that can be shared with anyone, but once that entry is viewed, it is deleted from the system.
+
+This service is 100% free and open-source. The goal for this is to be easily self-hosted (ideally one command to get it running).
+
+## Project Structure
+
+The project is organized into the following directories:
+
+- `apps/api/`: The API application
+- `apps/web/`: The web application
+
+## Tech Stack
+
+### API
+
+- Go (1.25.4)
+- Go Fiber
+- Redis
+- Zerolog
+
+### Web
+
+- Next.js
+- Tailwind CSS
+- Shadcn UI
