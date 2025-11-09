@@ -10,7 +10,7 @@ export default function Home() {
         <Container>
             <Navbar />
             {/* Hero section */}
-            <div className="mt-32 flex max-w-2xl flex-col items-start justify-center gap-12">
+            <div className="mt-32 mb-8 flex max-w-2xl flex-col items-start justify-center gap-12">
                 <div className="flex flex-col gap-8">
                     <div className="flex items-center gap-4">
                         <HashIcon className="h-8 w-8 opacity-20" />
