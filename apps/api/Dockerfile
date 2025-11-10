@@ -26,8 +26,8 @@ WORKDIR /root/
 # Copy the binary from builder
 COPY --from=builder /app/main .
 
-# Expose the port
-EXPOSE 8080
+# Expose the port (default 8080, configurable via PORT env var)
+EXPOSE ${PORT:-8080}
 
 # Run the application
 CMD ["./main"]

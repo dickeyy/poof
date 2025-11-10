@@ -75,6 +75,26 @@ docker-compose logs -f api
 docker-compose down
 ```
 
+### Custom Port Configuration
+
+If port 8080 is already in use on your host machine, you can configure custom ports:
+
+```bash
+# Set custom host port (maps host port 3000 to container port 8080)
+HOST_PORT=3000 docker-compose up -d
+
+# Or set both host and container ports
+HOST_PORT=3000 PORT=3000 docker-compose up -d
+```
+
+You can also create a `.env` file with these values:
+
+```bash
+HOST_PORT=3000
+PORT=8080
+ENCRYPTION_KEY=your_encryption_key_here
+```
+
 ### Running Locally
 
 1. Make sure Redis is running locally
@@ -104,7 +124,8 @@ The API will start on port 8080 (or the port specified in your `.env` file).
 The application can be configured using environment variables:
 
 - `APP_NAME` - Application name (default: poof-api)
-- `PORT` - Server port (default: 8080)
+- `PORT` - Server port inside the container (default: 8080)
+- `HOST_PORT` - Host machine port for docker-compose (default: 8080)
 - `ENVIRONMENT` - Environment (development/production)
 - `READ_TIMEOUT` - Read timeout in seconds (default: 10)
 - `WRITE_TIMEOUT` - Write timeout in seconds (default: 10)

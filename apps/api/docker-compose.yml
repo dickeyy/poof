@@ -23,10 +23,10 @@ services:
     container_name: poof-api
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "${HOST_PORT:-8080}:${PORT:-8080}"
     environment:
       - APP_NAME=poof-api
-      - PORT=8080
+      - PORT=${PORT:-8080}
       - ENVIRONMENT=production
       - LOG_LEVEL=info
       - REDIS_URL=redis://redis:6379
