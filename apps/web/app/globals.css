@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+    font-family: "CommitMono";
+    src: url("/fonts/commit-mono-vf.woff2") format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --background: oklch(0.9918 0.0134 145.4732);
     --foreground: oklch(0.3005 0.0376 144.5679);
@@ -36,9 +43,9 @@
     --sidebar-accent-foreground: oklch(0.3005 0.0376 144.5679);
     --sidebar-border: oklch(0.5913 0.0639 144.7139);
     --sidebar-ring: oklch(0.5913 0.0639 144.7139);
-    --font-sans: "IBM Plex Mono", monospace;
+    --font-sans: "CommitMono", monospace;
     --font-serif: Georgia, serif;
-    --font-mono: "IBM Plex Mono", monospace;
+    --font-mono: "CommitMono", monospace;
     --radius: 0.25rem;
     --shadow-x: 0rem;
     --shadow-y: 0.125rem;
