@@ -118,7 +118,7 @@ export default function PoofPage({ params }: { params: Promise<{ id: string }> }
                         </p>
                     </div>
                     <div className="relative">
-                        <div className="border-muted-foreground/20 bg-muted/30 overflow-x-auto border-2 border-dashed p-0">
+                        <div className="border-muted-foreground/20 bg-muted/30 overflow-x-auto border border-dashed p-0">
                             <div className="flex min-w-max">
                                 {/* Line numbers */}
                                 <div className="bg-muted/20 border-muted-foreground/10 shrink-0 border-r px-1 py-2">
@@ -145,7 +145,7 @@ export default function PoofPage({ params }: { params: Promise<{ id: string }> }
                                 </div>
                             </div>
                         </div>
-                        <div className="absolute top-2 right-2">
+                        <div className="absolute top-0.5 right-1">
                             <Button
                                 variant="outline"
                                 size="sm"
