@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import { HashIcon, SendIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -49,23 +50,11 @@ export default function Page() {
 
     async function onSubmit(data: FormData) {
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/text`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    text: data.content
-                })
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/text`, {
+                text: data.content
             });
 
-            if (!res.ok) {
-                form.setError("content", { message: "Failed to create poof" });
-                return;
-            }
-
-            const resData = await res.json();
-            setCreatedPoofId(resData.id);
+            setCreatedPoofId(res.data.id);
             setDialogOpen(true);
 
             form.reset();

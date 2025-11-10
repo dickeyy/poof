@@ -3,6 +3,7 @@
 import { Container } from "@/components/container";
 import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
+import axios, { AxiosError } from "axios";
 import { PlusIcon } from "lucide-react";
 import Link from "next/link";
 import { use, useEffect, useState } from "react";
@@ -22,22 +23,15 @@ export default function PoofPage({ params }: { params: Promise<{ id: string }> }
     useEffect(() => {
         async function fetchPoof() {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/text/${id}`);
-
-                if (!res.ok) {
-                    if (res.status === 404) {
-                        setError("This poof has already been viewed or doesn't exist.");
-                    } else {
-                        setError("Failed to fetch poof content.");
-                    }
-                    return;
-                }
-
-                const poofData = await res.json();
-                setData(poofData);
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/text/${id}`);
+                setData(res.data);
             } catch (err) {
                 console.error("Failed to fetch poof:", err);
-                setError("Failed to fetch poof content.");
+                if (err instanceof AxiosError && err.response?.status === 404) {
+                    setError("This poof has already been viewed or doesn't exist.");
+                } else {
+                    setError("Failed to fetch poof content.");
+                }
             } finally {
                 setLoading(false);
             }
