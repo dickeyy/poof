@@ -141,7 +141,7 @@ function SuccessDialog({
     poofId: string;
 }) {
     const [copied, setCopied] = useState(false);
-    const poofUrl = `${window.location.origin}/p/${poofId}`;
+    const poofUrl = typeof window !== "undefined" ? `${window.location.origin}/p/${poofId}` : "";
 
     const copyToClipboard = async () => {
         try {
