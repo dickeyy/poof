@@ -1,21 +1,37 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"]
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"]
-});
 
 export const metadata: Metadata = {
     title: "poof.sh",
     description:
-        "Share one-time information securely. Create a short-lived text file, send a link, and it disappears forever after someone views it. 100% free, open-source, and self-hostable."
+        "Share one-time information securely. Create a short-lived text file, send a link, and it disappears forever after someone views it. 100% free, open-source, and self-hostable.",
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: "https://poof.sh",
+        title: "poof.sh",
+        description:
+            "Share one-time information securely. Create a short-lived text file, send a link, and it disappears forever after someone views it. 100% free, open-source, and self-hostable.",
+        images: [
+            {
+                url: "https://poof.sh/og-image.png",
+                width: 1200,
+                height: 630
+            }
+        ]
+    },
+    keywords: [
+        "poof",
+        "poof.sh",
+        "one-time",
+        "text",
+        "file",
+        "share",
+        "secure",
+        "open-source",
+        "self-hostable"
+    ],
+    authors: [{ name: "Kyle Dickey", url: "https://github.com/dickeyy" }]
 };
 
 export default function RootLayout({
@@ -25,9 +41,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                {children}
-            </body>
+            <body className="antialiased">{children}</body>
         </html>
     );
 }
