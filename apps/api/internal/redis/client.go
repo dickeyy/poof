@@ -56,3 +56,7 @@ func (c *Client) Del(ctx context.Context, key string) error {
 func (c *Client) Close() error {
 	return c.client.Close()
 }
+
+func (c *Client) Incr(ctx context.Context, key string) (int64, error) {
+	return c.client.Incr(ctx, key).Result()
+}

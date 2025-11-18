@@ -75,6 +75,8 @@ func (h *TextHandler) GetText(c *fiber.Ctx) error {
 		})
 	}
 
+	_, _ = h.redis.Incr(ctx, "stats:total_viewed")
+
 	// return the id and decrypted text
 	return c.JSON(fiber.Map{
 		"id":    id,
@@ -133,6 +135,8 @@ func (h *TextHandler) CreateText(c *fiber.Ctx) error {
 			"error": "failed to save entry",
 		})
 	}
+
+	_, _ = h.redis.Incr(ctx, "stats:total_created")
 
 	h.log.Info().Str("id", id).Msg("Created entry")
 
